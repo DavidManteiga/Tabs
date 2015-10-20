@@ -7,5 +7,6 @@
     <string name="img1">Imagen1</string>
     <string name="img2">Imagen2</string>
     <string name="img3">Imagen3</string>
+    <string name="title_activity_listitem_contactos">listitem_contactos</string>
 
 </resources>

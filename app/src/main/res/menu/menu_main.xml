@@ -14,7 +14,7 @@
         android:title="@string/img1"
         android:orderInCategory="100"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/abc_ic_voice_search_api_mtrl_alpha"/>
+        android:icon="@drawable/tel"/>
 
 
 </menu>

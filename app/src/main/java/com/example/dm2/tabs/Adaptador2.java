@@ -1,71 +1,61 @@
 package com.example.dm2.tabs;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
  * Created by dm2 on 13/10/2015.
  */
-public class Adaptador2 extends ArrayAdapter<MisWebs>
+public class Adaptador2 extends ArrayAdapter<Contacto>
 {
     private TextView nombre;
+    private TextView telefono;
+   // private ImageButton llamada;
+    private Contacto[] datos;
 
-    private MisWebs[] datos;
-
-    public Adaptador2(Context context, MisWebs[] datos) {
-        super(context, R.layout.listitem_titular, datos);
+    public Adaptador2(Context context, Contacto[] datos) {
+        super(context, R.layout.listitem_contactos, datos);
 
         this.datos=datos;
 
 
     }
-/*
-    public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        View item = inflater.inflate(R.layout.listitem_titular, null);
 
-        titulo = (TextView)item.findViewById(R.id.titulo);
-        titulo.setText(datos[position].getTitulo());
-
-        url = (TextView)item.findViewById(R.id.url);
-        url.setText(datos[position].getUrl());
-
-        imagen=(ImageView)item.findViewById(R.id.imagen);
-        imagen.setImageDrawable(datos[position].getImagen());
-
-        return(item);
-    }
-    */
 public View getView(int position, View convertView, ViewGroup parent)
 {
     View item = convertView;
-    ViewHolder holder;
+    ViewHolderContactos holder;
 
     if(item == null)
     {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        item = inflater.inflate(R.layout.listitem_titular, null);
+        item = inflater.inflate(R.layout.listitem_contactos, null);
 
-        holder = new ViewHolder();
-        holder.titulo = (TextView)item.findViewById(R.id.titulo);
-        holder.url = (TextView)item.findViewById(R.id.url);
-        holder.imagen=(ImageView)item.findViewById(R.id.imagen);
+        holder = new ViewHolderContactos();
+        holder.nombre = (TextView)item.findViewById(R.id.nombre);
+        holder.telefono = (TextView)item.findViewById(R.id.telefono);
+       // holder.llamada=(ImageButton)item.findViewById(R.id.llamada);
 
         item.setTag(holder);
     }
     else
     {
-        holder = (ViewHolder)item.getTag();
+        holder = (ViewHolderContactos)item.getTag();
     }
 
-    holder.titulo.setText(datos[position].getTitulo());
-    holder.url.setText(datos[position].getUrl());
-    holder.imagen.setImageDrawable(datos[position].getImagen());
+    holder.nombre.setText(datos[position].getNombre());
+    holder.telefono.setText(datos[position].getTelefono());
+    //holder.llamada.setImageDrawable(datos[position].getLlamada());
+
+
+
     return(item);
 }
 }
