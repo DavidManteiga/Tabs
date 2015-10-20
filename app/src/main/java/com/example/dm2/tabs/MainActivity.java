@@ -262,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-    }
+    } 
 
 
     private void call(String tel) {
